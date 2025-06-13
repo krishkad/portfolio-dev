@@ -49,38 +49,38 @@ const Home = () => {
     "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&h=800&fit=crop",
   ];
 
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "Modern e-commerce solution with React & Node.js",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop",
-      liveDemo: "#",
-      github: "#",
-    },
-    {
-      id: 2,
-      title: "Portfolio Dashboard",
-      description: "Analytics dashboard for tracking portfolio performance",
-      tech: ["React", "TypeScript", "Chart.js", "Firebase"],
-      image:
-        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
-      liveDemo: "#",
-      github: "#",
-    },
-    {
-      id: 3,
-      title: "Task Management App",
-      description: "Collaborative task management with real-time updates",
-      tech: ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
-      image:
-        "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=250&fit=crop",
-      liveDemo: "#",
-      github: "#",
-    },
-  ];
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     title: "E-Commerce Platform",
+  //     description: "Modern e-commerce solution with React & Node.js",
+  //     tech: ["React", "Node.js", "MongoDB", "Stripe"],
+  //     image:
+  //       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop",
+  //     liveDemo: "#",
+  //     github: "#",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Portfolio Dashboard",
+  //     description: "Analytics dashboard for tracking portfolio performance",
+  //     tech: ["React", "TypeScript", "Chart.js", "Firebase"],
+  //     image:
+  //       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
+  //     liveDemo: "#",
+  //     github: "#",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Task Management App",
+  //     description: "Collaborative task management with real-time updates",
+  //     tech: ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
+  //     image:
+  //       "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=250&fit=crop",
+  //     liveDemo: "#",
+  //     github: "#",
+  //   },
+  // ];
 
   const services = [
     {
