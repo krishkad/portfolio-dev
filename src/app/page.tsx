@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,7 +28,7 @@ import {
   Search,
   Star,
   Users,
-  X
+  X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -291,7 +291,7 @@ const Home = () => {
                 isScrolled ? "text-foreground" : "text-white"
               }`}
             >
-              Krrish
+              Devwithkrrish
             </h1>
 
             {/* Desktop Navigation */}
@@ -355,7 +355,7 @@ const Home = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-dvh flex items-center justify-center overflow-hidden">
         {/* Background Slideshow */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -418,10 +418,10 @@ const Home = () => {
               />
               <h2 className="text-4xl font-bold mb-6">About Me</h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                I&apos;m a passionate web developer with over 5 years of experience
-                creating digital solutions that make a difference. I specialize
-                in modern web technologies and love bringing creative ideas to
-                life through code.
+                I&apos;m a passionate web developer with over 5 years of
+                experience creating digital solutions that make a difference. I
+                specialize in modern web technologies and love bringing creative
+                ideas to life through code.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 {["React", "TypeScript", "Node.js", "UI/UX"].map((skill) => (
@@ -921,7 +921,7 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div>
-              <h3 className="text-2xl font-bold mb-4">Krrish</h3>
+              <h3 className="text-2xl font-bold mb-4">Devwithkrrish</h3>
               <p className="text-muted-foreground">
                 Web Developer & UI/UX Enthusiast creating digital experiences
                 that matter.
