@@ -1,5 +1,5 @@
-"use client";
-import { Badge } from "@/components/ui/badge";
+"use client"
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,30 +11,34 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
 import {
-  Calendar,
-  CheckCircle,
-  Code,
-  Contact,
-  FileText,
   Github,
   Mail,
-  Menu,
-  MessageCircle,
-  Palette,
-  Phone,
-  Rocket,
-  Search,
   Star,
+  ArrowRight,
+  Code,
+  Contact,
+  Phone,
+  MessageCircle,
+  Search,
+  FileText,
+  Calendar,
   Users,
-  X
+  Palette,
+  CheckCircle,
+  Rocket,
+  Award,
+  Menu,
+  X,
+  ChevronRight,
 } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const Home = () => {
-   const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
 
   const heroImages = [
     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=800&fit=crop",
@@ -108,6 +112,7 @@ const Home = () => {
         "Reach out via email or direct message to discuss your project needs",
       icon: Mail,
       duration: "Day 1",
+      color: "bg-blue-500",
     },
     {
       step: 2,
@@ -116,6 +121,7 @@ const Home = () => {
         "Google Meet session to understand requirements and project scope",
       icon: MessageCircle,
       duration: "Day 2-3",
+      color: "bg-purple-500",
     },
     {
       step: 3,
@@ -124,6 +130,7 @@ const Home = () => {
         "Create wireframes and designs using Figma for visual approval",
       icon: Palette,
       duration: "Week 1",
+      color: "bg-pink-500",
     },
     {
       step: 4,
@@ -131,6 +138,7 @@ const Home = () => {
       description: "Review and refine designs based on your feedback",
       icon: CheckCircle,
       duration: "Week 1-2",
+      color: "bg-green-500",
     },
     {
       step: 5,
@@ -138,6 +146,7 @@ const Home = () => {
       description: "Begin coding your project with modern technologies",
       icon: Code,
       duration: "Week 2+",
+      color: "bg-orange-500",
     },
     {
       step: 6,
@@ -146,6 +155,7 @@ const Home = () => {
         "Regular progress reports and preview links for transparency",
       icon: Calendar,
       duration: "Ongoing",
+      color: "bg-cyan-500",
     },
     {
       step: 7,
@@ -153,6 +163,7 @@ const Home = () => {
       description: "Thorough testing across devices and browsers",
       icon: Search,
       duration: "Final Week",
+      color: "bg-yellow-500",
     },
     {
       step: 8,
@@ -161,6 +172,7 @@ const Home = () => {
         "Complete project delivery with source code and documentation",
       icon: Rocket,
       duration: "Delivery Day",
+      color: "bg-red-500",
     },
   ];
 
@@ -248,11 +260,19 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % developmentSteps.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false); // Close mobile menu when navigating
   };
 
-    const toggleMobileMenu = () => {
+  const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
@@ -273,7 +293,7 @@ const Home = () => {
                 isScrolled ? "text-foreground" : "text-white"
               }`}
             >
-              Devwithkrrish
+              Krrish
             </h1>
 
             {/* Desktop Navigation */}
@@ -358,20 +378,20 @@ const Home = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-            I&quot;m Krrish
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 animate-fade-in">
+            I'm Krrish
           </h1>
-          <p className="text-xl md:text-2xl mb-8 animate-fade-in opacity-90">
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 animate-fade-in opacity-90">
             Web Developer & UI/UX Enthusiast
           </p>
-          <p className="text-lg mb-10 max-w-2xl mx-auto animate-fade-in">
+          <p className="text-base md:text-lg mb-10 max-w-2xl mx-auto animate-fade-in">
             Creating digital experiences that combine beautiful design with
             powerful functionality
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <Button
               size="lg"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-6 md:px-8 py-3"
               onClick={() => scrollToSection("projects")}
             >
               View My Work
@@ -379,7 +399,7 @@ const Home = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-black hover:bg-white hover:text-black px-8 py-3"
+              className="border-white text-black  hover:bg-white hover:text-black px-6 md:px-8 py-3"
               onClick={() => scrollToSection("contact")}
             >
               Contact Me
@@ -394,13 +414,13 @@ const Home = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
               <img
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=200&fit=crop&crop=face"
+                src="/my-profile.jpg"
                 alt="Krrish"
                 className="w-32 h-32 rounded-full mx-auto mb-8 object-cover border-4 border-blue-500"
               />
               <h2 className="text-4xl font-bold mb-6">About Me</h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                I&quot;m a passionate web developer with over 5 years of experience
+                I'm a passionate web developer with over 5 years of experience
                 creating digital solutions that make a difference. I specialize
                 in modern web technologies and love bringing creative ideas to
                 life through code.
@@ -434,7 +454,7 @@ const Home = () => {
             {projects.map((project) => (
               <Card
                 key={project.id}
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 py-0 pb-6"
+                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
@@ -475,7 +495,7 @@ const Home = () => {
       </section>
 
       {/* Development Walkthrough Section */}
-      <section id="process" className="py-20 bg-muted/30">
+      <section id="process" className="py-20 bg-muted/30 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Development Walkthrough</h2>
@@ -484,31 +504,37 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Timeline */}
-          <div className="relative">
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-blue-500"></div>
+          {/* Desktop Timeline */}
+          <div className="hidden lg:block relative">
+            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-red-500"></div>
 
             <div className="space-y-12">
               {developmentSteps.map((step, index) => (
                 <div
                   key={step.step}
                   className={`relative flex items-center ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  } group`}
                 >
-                  {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 border-4 border-background rounded-full z-10"></div>
+                  {/* Animated Timeline dot */}
+                  <div
+                    className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 ${step.color} border-4 border-background rounded-full z-10 transition-all duration-300 group-hover:scale-125 group-hover:shadow-lg`}
+                  >
+                    <div
+                      className={`absolute inset-0 ${step.color} rounded-full animate-ping opacity-75`}
+                    ></div>
+                  </div>
 
                   {/* Content card */}
                   <div
-                    className={`w-full md:w-5/12 ${
-                      index % 2 === 0 ? "md:pr-8" : "md:pl-8"
-                    }`}
+                    className={`w-5/12 ${index % 2 === 0 ? "pr-8" : "pl-8"}`}
                   >
-                    <Card className="hover:shadow-lg transition-all duration-300">
+                    <Card className="hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 group-hover:scale-105">
                       <CardContent className="p-6">
                         <div className="flex items-center mb-4">
-                          <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white mr-4">
+                          <div
+                            className={`w-12 h-12 ${step.color} rounded-full flex items-center justify-center text-white mr-4 shadow-lg`}
+                          >
                             <step.icon className="w-6 h-6" />
                           </div>
                           <div>
@@ -527,6 +553,123 @@ const Home = () => {
                     </Card>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile & Tablet Interactive Cards */}
+          <div className="lg:hidden">
+            {/* Progress indicator */}
+            <div className="flex justify-center mb-8">
+              <div className="flex space-x-2">
+                {developmentSteps.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveStep(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === activeStep
+                        ? "bg-blue-500 scale-125"
+                        : "bg-muted"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Active Step Card */}
+            <div className="relative min-h-[350px]  mb-8">
+              {developmentSteps.map((step, index) => (
+                <Card
+                  key={step.step}
+                  className={`absolute  inset-0 transition-all duration-500 ${
+                    index === activeStep
+                      ? "opacity-100 transform translate-x-0 scale-100"
+                      : index < activeStep
+                      ? "opacity-0 transform -translate-x-full scale-95"
+                      : "opacity-0 transform translate-x-full scale-95"
+                  } hover:shadow-xl`}
+                >
+                  <CardContent className="p-8 text-center">
+                    {/* Step number with animation */}
+                    <div className="relative mb-6">
+                      <div
+                        className={`w-20 h-20 ${step.color} rounded-full flex items-center justify-center text-white mx-auto shadow-xl`}
+                      >
+                        <step.icon className="w-10 h-10" />
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                        {step.step}
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-medium mb-4">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {step.duration}
+                    </div>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Navigation buttons */}
+            <div className="flex justify-between items-center">
+              <Button
+                variant="outline"
+                onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
+                disabled={activeStep === 0}
+                className="flex items-center space-x-2"
+              >
+                <ChevronRight className="w-4 h-4 rotate-180" />
+                <span>Previous</span>
+              </Button>
+
+              <div className="text-sm text-muted-foreground">
+                {activeStep + 1} of {developmentSteps.length}
+              </div>
+
+              <Button
+                variant="outline"
+                onClick={() =>
+                  setActiveStep(
+                    Math.min(developmentSteps.length - 1, activeStep + 1)
+                  )
+                }
+                disabled={activeStep === developmentSteps.length - 1}
+                className="flex items-center space-x-2"
+              >
+                <span>Next</span>
+                <ChevronRight className="w-4 h-4" />
+              </Button>
+            </div>
+
+            {/* Step List for quick navigation */}
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {developmentSteps.map((step, index) => (
+                <button
+                  key={step.step}
+                  onClick={() => setActiveStep(index)}
+                  className={`p-3 rounded-lg border transition-all duration-300 text-left ${
+                    index === activeStep
+                      ? "border-blue-500 bg-blue-50 shadow-md"
+                      : "border-muted hover:border-blue-300 hover:bg-muted/50"
+                  }`}
+                >
+                  <div
+                    className={`w-8 h-8 ${step.color} rounded-full flex items-center justify-center text-white mb-2`}
+                  >
+                    <step.icon className="w-4 h-4" />
+                  </div>
+                  <div className="text-xs font-medium truncate">
+                    {step.title}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {step.duration}
+                  </div>
+                </button>
               ))}
             </div>
           </div>
@@ -602,7 +745,7 @@ const Home = () => {
                     ))}
                   </div>
                   <p className="text-muted-foreground italic">
-                    &quot;{testimonial.content}&quot;
+                    "{testimonial.content}"
                   </p>
                 </CardContent>
               </Card>
@@ -624,7 +767,7 @@ const Home = () => {
             {blogPosts.map((post) => (
               <Card
                 key={post.id}
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 py-0 pb-6"
+                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
@@ -666,7 +809,7 @@ const Home = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
             <p className="text-xl text-muted-foreground">
-              Ready to start your next project? Let&apos;s talk!
+              Ready to start your next project? Let's talk!
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -676,7 +819,7 @@ const Home = () => {
                 <CardHeader>
                   <CardTitle>Send Message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and I&apos;ll get back to you soon.
+                    Fill out the form below and I'll get back to you soon.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
