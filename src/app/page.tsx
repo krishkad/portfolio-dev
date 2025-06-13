@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,28 +11,26 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
 import {
-  Github,
-  Mail,
-  Star,
-  ArrowRight,
+  Calendar,
+  CheckCircle,
+  ChevronRight,
   Code,
   Contact,
-  Phone,
-  MessageCircle,
-  Search,
   FileText,
-  Calendar,
-  Users,
-  Palette,
-  CheckCircle,
-  Rocket,
-  Award,
+  Github,
+  Mail,
   Menu,
-  X,
-  ChevronRight,
+  MessageCircle,
+  Palette,
+  Phone,
+  Rocket,
+  Search,
+  Star,
+  Users,
+  X
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -379,7 +377,7 @@ const Home = () => {
         {/* Hero Content */}
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 animate-fade-in">
-            I'm Krrish
+            I&apos;m Krrish
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-8 animate-fade-in opacity-90">
             Web Developer & UI/UX Enthusiast
@@ -420,7 +418,7 @@ const Home = () => {
               />
               <h2 className="text-4xl font-bold mb-6">About Me</h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                I'm a passionate web developer with over 5 years of experience
+                I&apos;m a passionate web developer with over 5 years of experience
                 creating digital solutions that make a difference. I specialize
                 in modern web technologies and love bringing creative ideas to
                 life through code.
@@ -745,7 +743,7 @@ const Home = () => {
                     ))}
                   </div>
                   <p className="text-muted-foreground italic">
-                    "{testimonial.content}"
+                    &quot;{testimonial.content}&quot;
                   </p>
                 </CardContent>
               </Card>
@@ -809,7 +807,7 @@ const Home = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
             <p className="text-xl text-muted-foreground">
-              Ready to start your next project? Let's talk!
+              Ready to start your next project? Let&apos;s talk!
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -819,7 +817,7 @@ const Home = () => {
                 <CardHeader>
                   <CardTitle>Send Message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and I'll get back to you soon.
+                    Fill out the form below and I&apos;ll get back to you soon.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
