@@ -12,12 +12,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import {
+  ArrowRight,
   Calendar,
   CheckCircle,
   ChevronRight,
   Code,
   Contact,
   FileText,
+  Filter,
   Github,
   Mail,
   Menu,
@@ -37,6 +39,9 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const filters = ["All", "Residential", "Commercial", "Industrial"];
 
   const heroImages = [
     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=800&fit=crop",
@@ -242,6 +247,86 @@ const Home = () => {
       link: "#",
     },
   ];
+
+  const projectss = [
+    {
+      id: 1,
+      title: "Downtown Office Complex",
+      category: "Commercial",
+      location: "City Center, BC",
+      description:
+        "Complete waterproofing solution for 12-story office building including basement and roof systems",
+      image:
+        "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600",
+      year: "2024",
+      size: "45,000 sq ft",
+    },
+    {
+      id: 2,
+      title: "Luxury Residential Home",
+      category: "Residential",
+      location: "West Vancouver, BC",
+      description:
+        "Basement waterproofing and foundation protection for high-end residential property",
+      image:
+        "https://images.unsplash.com/photo-1460574283810-2aab119d8511?w=600",
+      year: "2023",
+      size: "8,500 sq ft",
+    },
+    {
+      id: 3,
+      title: "Industrial Warehouse",
+      category: "Industrial",
+      location: "Richmond, BC",
+      description:
+        "Roof and wall waterproofing for large distribution center with specialized membrane systems",
+      image:
+        "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600",
+      year: "2023",
+      size: "125,000 sq ft",
+    },
+    {
+      id: 4,
+      title: "Heritage Building Restoration",
+      category: "Commercial",
+      location: "Gastown, BC",
+      description:
+        "Sensitive waterproofing restoration maintaining historical integrity while providing modern protection",
+      image:
+        "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600",
+      year: "2024",
+      size: "15,000 sq ft",
+    },
+    {
+      id: 5,
+      title: "Townhouse Complex",
+      category: "Residential",
+      location: "Burnaby, BC",
+      description:
+        "Comprehensive waterproofing for 24-unit townhouse development including parkades and amenity areas",
+      image:
+        "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600",
+      year: "2023",
+      size: "32,000 sq ft",
+    },
+    {
+      id: 6,
+      title: "Manufacturing Facility",
+      category: "Industrial",
+      location: "Surrey, BC",
+      description:
+        "Specialized chemical-resistant waterproofing for food processing facility with strict safety standards",
+      image:
+        "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600",
+      year: "2024",
+      size: "85,000 sq ft",
+    },
+  ];
+
+  const filteredProjects =
+    activeFilter === "All"
+      ? projectss
+      : projectss.filter((project) => project.category === activeFilter);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -453,7 +538,7 @@ const Home = () => {
               A showcase of my recent work and creative solutions
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <Card
                 key={project.id}
@@ -493,9 +578,138 @@ const Home = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </div> */}
+          <section className="pb-8 bg-white border-b">
+            <div className="w-full">
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <div className="flex items-center mr-4">
+                  <Filter className="w-5 h-5 text-construction-grey mr-2" />
+                  <span className="text-construction-grey font-medium">
+                    Filter by:
+                  </span>
+                </div>
+                {filters.map((filter) => (
+                  <Button
+                    key={filter}
+                    variant={activeFilter === filter ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setActiveFilter(filter)}
+                    className={
+                      activeFilter === filter
+                        ? "bg-blue-600 hover:bg-blue-600/90"
+                        : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                    }
+                  >
+                    {filter}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Projects Grid */}
+          <section className="py-20 bg-white">
+            <div className="w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredProjects.map((project) => (
+                  <Card
+                    key={project.id}
+                    className="border-0 shadow-lg card-hover"
+                  >
+                    <div className="aspect-video overflow-hidden rounded-t-lg">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <div className="flex justify-between items-start mb-3">
+                        <Badge
+                          variant="outline"
+                          className="border-water-blue text-water-blue"
+                        >
+                          {project.category}
+                        </Badge>
+                        <span className="text-sm text-construction-grey">
+                          {project.year}
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-semibold mb-2 text-trust-dark">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-water-blue mb-2 font-medium">
+                        {project.location}
+                      </p>
+                      <p className="text-construction-grey mb-4 text-sm leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      <div className="flex justify-between items-center mb-4">
+                        <span className="text-sm text-construction-grey">
+                          <strong>Size:</strong> {project.size}
+                        </span>
+                      </div>
+
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                      >
+                        View Details
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {filteredProjects.length === 0 && (
+                <div className="text-center py-12">
+                  <p className="text-construction-grey">
+                    No projects found for the selected filter.
+                  </p>
+                </div>
+              )}
+            </div>
+          </section>
         </div>
       </section>
+
+      {/* Stats Section */}
+      {/* <section className="py-20 bg-construction-grey-light">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-trust-dark">
+              Project Success Metrics
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-water-blue mb-2">
+                500+
+              </div>
+              <div className="text-construction-grey">Projects Completed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-water-blue mb-2">
+                2.5M+
+              </div>
+              <div className="text-construction-grey">Sq Ft Protected</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-water-blue mb-2">15</div>
+              <div className="text-construction-grey">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-water-blue mb-2">99%</div>
+              <div className="text-construction-grey">Success Rate</div>
+            </div>
+          </div>
+        </div>
+      </section> */}
 
       {/* Development Walkthrough Section */}
       <section id="process" className="py-20 bg-muted/30 overflow-hidden">
