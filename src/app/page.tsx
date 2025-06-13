@@ -452,7 +452,7 @@ const Home = () => {
             {projects.map((project) => (
               <Card
                 key={project.id}
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
+                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 py-0 pb-6"
               >
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
@@ -715,9 +715,9 @@ const Home = () => {
             {testimonials.map((testimonial, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg transition-all duration-300"
+                className="py-6 hover:shadow-lg transition-all duration-300"
               >
-                <CardContent className="pt-6">
+                <CardContent className="">
                   <div className="flex items-center mb-4">
                     <img
                       src={testimonial.avatar}
@@ -765,7 +765,7 @@ const Home = () => {
             {blogPosts.map((post) => (
               <Card
                 key={post.id}
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
+                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 py-0 pb-6"
               >
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
@@ -813,7 +813,7 @@ const Home = () => {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Contact Form */}
-              <Card className="p-6">
+              <Card className="py-6">
                 <CardHeader>
                   <CardTitle>Send Message</CardTitle>
                   <CardDescription>
@@ -862,8 +862,8 @@ const Home = () => {
 
               {/* Contact Info */}
               <div className="space-y-6">
-                <Card className="p-6">
-                  <CardContent className="pt-6">
+                <Card className="py-6">
+                  <CardContent className="">
                     <h3 className="text-xl font-semibold mb-4">
                       Contact Information
                     </h3>
@@ -890,8 +890,8 @@ const Home = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="p-6">
-                  <CardContent className="pt-6">
+                <Card className="py-6">
+                  <CardContent className="">
                     <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
                     <div className="flex space-x-4">
                       <a
