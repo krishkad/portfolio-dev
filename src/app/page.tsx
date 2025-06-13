@@ -287,11 +287,16 @@ const Home = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <h1
-              className={`text-2xl font-bold transition-colors ${
+              className={`text-xl flex items-center justify-start gap-2.5 font-bold transition-colors ${
                 isScrolled ? "text-foreground" : "text-white"
               }`}
             >
-              Devwithkrrish
+              <img
+                src={"/logo.png"}
+                className="w-9 h-9 shrink-0 rounded-full"
+                alt="logo"
+              />
+              <p>devwithkrrish</p>
             </h1>
 
             {/* Desktop Navigation */}
@@ -921,7 +926,16 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div>
-              <h3 className="text-2xl font-bold mb-4">Devwithkrrish</h3>
+              <h3
+                className={`text-xl flex items-center justify-start gap-2.5 font-bold transition-colors mb-4`}
+              >
+                <img
+                  src={"/logo.png"}
+                  className="w-9 h-9 shrink-0 rounded-full"
+                  alt="logo"
+                />
+                <p className="">devwithkrrish</p>
+              </h3>
               <p className="text-muted-foreground">
                 Web Developer & UI/UX Enthusiast creating digital experiences
                 that matter.
