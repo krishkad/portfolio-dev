@@ -110,7 +110,7 @@ const Home = () => {
         "Reach out via email or direct message to discuss your project needs",
       icon: Mail,
       duration: "Day 1",
-      color: "bg-blue-500",
+      color: "bg-purple-500",
     },
     {
       step: 2,
@@ -350,7 +350,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-svh bg-background">
       {/* Navigation */}
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -381,7 +381,7 @@ const Home = () => {
                   <button
                     key={item}
                     onClick={() => scrollToSection(item.toLowerCase())}
-                    className={`transition-colors hover:text-blue-500 ${
+                    className={`transition-colors hover:text-purple-500 ${
                       isScrolled ? "text-foreground" : "text-white"
                     }`}
                   >
@@ -420,7 +420,7 @@ const Home = () => {
                     <button
                       key={item}
                       onClick={() => scrollToSection(item.toLowerCase())}
-                      className={`text-left py-2 transition-colors hover:text-blue-500 ${
+                      className={`text-left py-2 transition-colors hover:text-purple-500 ${
                         isScrolled ? "text-foreground" : "text-white"
                       }`}
                     >
@@ -482,7 +482,7 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <Button
               size="lg"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 md:px-8 py-3"
+              className=" text-white px-6 md:px-8 py-3"
               onClick={() => scrollToSection("projects")}
             >
               View My Work
@@ -500,14 +500,14 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-muted/30">
+      <section id="about" className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
               <img
                 src="/my-profile.jpg"
                 alt="Krrish"
-                className="w-32 h-32 rounded-full mx-auto mb-8 object-cover border-4 border-blue-500"
+                className="w-32 h-32 rounded-full mx-auto mb-8 object-cover border-4 border-purple-500"
               />
               <h2 className="text-4xl font-bold mb-6">About Me</h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -569,7 +569,7 @@ const Home = () => {
                   <div className="flex gap-2">
                     <Button
                       size="sm"
-                      className="bg-blue-500 hover:bg-blue-600 flex-1"
+                      className="bg-purple-500 hover:bg-purple-600 flex-1"
                     >
                       Live Demo
                     </Button>
@@ -599,8 +599,8 @@ const Home = () => {
                     onClick={() => setActiveFilter(filter)}
                     className={
                       activeFilter === filter
-                        ? "bg-blue-600 hover:bg-blue-600/90"
-                        : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                        ? "bg-purple-600 hover:bg-purple-600/90"
+                        : "border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white"
                     }
                   >
                     {filter}
@@ -658,7 +658,7 @@ const Home = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                        className="w-full border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white"
                       >
                         View Details
                         <ArrowRight className="ml-2 w-4 h-4" />
@@ -691,7 +691,7 @@ const Home = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-water-blue mb-2">
+              <div className="text-4xl font-bold text-water-purple mb-2">
                 500+
               </div>
               <div className="text-construction-grey">Projects Completed</div>
@@ -715,7 +715,7 @@ const Home = () => {
       </section> */}
 
       {/* Development Walkthrough Section */}
-      <section id="process" className="py-20 bg-muted/30 overflow-hidden">
+      <section id="process" className="py-20 bg-primary/5 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Development Walkthrough</h2>
@@ -726,7 +726,7 @@ const Home = () => {
 
           {/* Desktop Timeline */}
           <div className="hidden lg:block relative">
-            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-red-500"></div>
+            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-purple-500 via-purple-500 to-red-500"></div>
 
             <div className="space-y-12">
               {developmentSteps.map((step, index) => (
@@ -761,7 +761,7 @@ const Home = () => {
                             <h3 className="text-xl font-semibold">
                               {step.title}
                             </h3>
-                            <p className="text-sm text-blue-500 font-medium">
+                            <p className="text-sm text-purple-500 font-medium">
                               {step.duration}
                             </p>
                           </div>
@@ -788,7 +788,7 @@ const Home = () => {
                     onClick={() => setActiveStep(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       index === activeStep
-                        ? "bg-blue-500 scale-125"
+                        ? "bg-purple-500 scale-125"
                         : "bg-muted"
                     }`}
                   />
@@ -817,13 +817,13 @@ const Home = () => {
                       >
                         <step.icon className="w-10 h-10" />
                       </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
                         {step.step}
                       </div>
                     </div>
 
                     <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-medium mb-4">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm font-medium mb-4">
                       <Calendar className="w-4 h-4 mr-1" />
                       {step.duration}
                     </div>
@@ -874,8 +874,8 @@ const Home = () => {
                   onClick={() => setActiveStep(index)}
                   className={`p-3 rounded-lg border transition-all duration-300 text-left ${
                     index === activeStep
-                      ? "border-blue-500 bg-blue-50 shadow-md"
-                      : "border-muted hover:border-blue-300 hover:bg-muted/50"
+                      ? "border-purple-500 bg-purple-50 shadow-md"
+                      : "border-muted hover:border-purple-300 hover:bg-muted/50"
                   }`}
                 >
                   <div
@@ -912,7 +912,7 @@ const Home = () => {
                 className="text-center p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
               >
                 <CardContent className="pt-6">
-                  <service.icon className="w-12 h-12 mx-auto mb-4 text-blue-500" />
+                  <service.icon className="w-12 h-12 mx-auto mb-4 text-purple-500" />
                   <h3 className="text-xl font-semibold mb-3">
                     {service.title}
                   </h3>
@@ -925,7 +925,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Client Testimonials</h2>
@@ -951,7 +951,7 @@ const Home = () => {
                       <p className="text-sm text-muted-foreground">
                         {testimonial.role}
                       </p>
-                      <p className="text-xs text-blue-500">
+                      <p className="text-xs text-purple-500">
                         {testimonial.company}
                       </p>
                     </div>
@@ -1003,7 +1003,7 @@ const Home = () => {
                     <span className="mx-2">•</span>
                     {post.readTime}
                   </div>
-                  <CardTitle className="text-xl group-hover:text-blue-500 transition-colors">
+                  <CardTitle className="text-xl group-hover:text-purple-500 transition-colors">
                     {post.title}
                   </CardTitle>
                   <CardDescription>{post.excerpt}</CardDescription>
@@ -1011,7 +1011,7 @@ const Home = () => {
                 <CardContent>
                   <Button
                     variant="outline"
-                    className="w-full group-hover:bg-blue-500 group-hover:text-white transition-colors"
+                    className="w-full group-hover:bg-purple-500 group-hover:text-white transition-colors"
                   >
                     <FileText className="w-4 h-4 mr-2" />
                     Read More
@@ -1024,7 +1024,7 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-muted/30">
+      <section id="contact" className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
@@ -1073,7 +1073,7 @@ const Home = () => {
                       />
                     </div>
                     <Button
-                      className="w-full bg-blue-500 hover:bg-blue-600"
+                      className="w-full bg-purple-500 hover:bg-purple-600"
                       size="lg"
                     >
                       Send Message
@@ -1092,14 +1092,14 @@ const Home = () => {
                     <div className="space-y-4">
                       <a
                         href="mailto:krrish@example.com"
-                        className="flex items-center text-muted-foreground hover:text-blue-500 transition-colors"
+                        className="flex items-center text-muted-foreground hover:text-purple-500 transition-colors"
                       >
                         <Mail className="w-5 h-5 mr-3" />
                         krrish@example.com
                       </a>
                       <a
                         href="tel:+1234567890"
-                        className="flex items-center text-muted-foreground hover:text-blue-500 transition-colors"
+                        className="flex items-center text-muted-foreground hover:text-purple-500 transition-colors"
                       >
                         <Phone className="w-5 h-5 mr-3" />
                         +1 (234) 567-890
@@ -1118,13 +1118,13 @@ const Home = () => {
                     <div className="flex space-x-4">
                       <a
                         href="https://github.com"
-                        className="flex items-center justify-center w-10 h-10 bg-muted rounded-full hover:bg-blue-500 hover:text-white transition-colors"
+                        className="flex items-center justify-center w-10 h-10 bg-muted rounded-full hover:bg-purple-500 hover:text-white transition-colors"
                       >
                         <Github className="w-5 h-5" />
                       </a>
                       <a
                         href="mailto:krrish@example.com"
-                        className="flex items-center justify-center w-10 h-10 bg-muted rounded-full hover:bg-blue-500 hover:text-white transition-colors"
+                        className="flex items-center justify-center w-10 h-10 bg-muted rounded-full hover:bg-purple-500 hover:text-white transition-colors"
                       >
                         <Mail className="w-5 h-5" />
                       </a>
@@ -1168,7 +1168,7 @@ const Home = () => {
                     <button
                       key={link}
                       onClick={() => scrollToSection(link.toLowerCase())}
-                      className="block text-muted-foreground hover:text-blue-500 transition-colors"
+                      className="block text-muted-foreground hover:text-purple-500 transition-colors"
                     >
                       {link}
                     </button>
@@ -1183,14 +1183,14 @@ const Home = () => {
               <div className="space-y-2">
                 <a
                   href="mailto:krrish@example.com"
-                  className="flex items-center text-muted-foreground hover:text-blue-500 transition-colors"
+                  className="flex items-center text-muted-foreground hover:text-purple-500 transition-colors"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   krrish@example.com
                 </a>
                 <a
                   href="tel:+1234567890"
-                  className="flex items-center text-muted-foreground hover:text-blue-500 transition-colors"
+                  className="flex items-center text-muted-foreground hover:text-purple-500 transition-colors"
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   +1 (234) 567-890
@@ -1209,13 +1209,13 @@ const Home = () => {
             <div className="flex space-x-6">
               <a
                 href="https://github.com"
-                className="text-muted-foreground hover:text-blue-500 transition-colors"
+                className="text-muted-foreground hover:text-purple-500 transition-colors"
               >
                 <Github className="w-5 h-5" />
               </a>
               <a
                 href="mailto:krrish@example.com"
-                className="text-muted-foreground hover:text-blue-500 transition-colors"
+                className="text-muted-foreground hover:text-purple-500 transition-colors"
               >
                 <Mail className="w-5 h-5" />
               </a>
