@@ -36,18 +36,13 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filters = ["All", "Residential", "Commercial", "Industrial"];
 
-  const heroImages = [
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=800&fit=crop",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=800&fit=crop",
-    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&h=800&fit=crop",
-  ];
+
 
   // const projects = [
   //   {
@@ -336,12 +331,7 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -448,20 +438,33 @@ const Home = () => {
       <section className="relative h-dvh flex items-center justify-center overflow-hidden">
         {/* Background Slideshow */}
         <div className="absolute inset-0">
-          {heroImages.map((image, index) => (
+          {/* {heroImages.map((image, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ${
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
               style={{
-                backgroundImage: `url(${image})`,
+                background: `url(${image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             />
-          ))}
-          <div className="absolute inset-0 bg-black/50" />
+          ))} */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+          >
+            <source
+              src="/hero-video.mp4"
+              className="absolute inset-0 object-cover pointer-events-none select-none"
+              type="video/mp4"
+            />
+          </video>
+          <div className="absolute inset-0 " />
         </div>
 
         {/* Hero Content */}
